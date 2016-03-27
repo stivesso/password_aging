@@ -15,33 +15,31 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+The main aim of this module is to manage Password Aging parameters for both existing and future users. The main parameters that are currently managed under this module are:
+
+#       PASS_MAX_DAYS:   Maximum number of days a password may be used.
+#       PASS_MIN_DAYS:   Minimum number of days allowed between password changes.
+#       PASS_MIN_LEN:    Minimum Lenght of a password
+#       PASS_WARN_AGE:   Password Warning Period before Expritation (in days)
+
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
-
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+The module mainly configures systems files that are used to set the needed Settings.
+It also makes use of Systems commands to affect existing Users behavior.
 
 ## Setup
 
+puppet module install stivesso-password_aging
+
 ### What password_aging affects
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
+** /etc/shadow
+** /etc/login.defs
 
 ### Setup Requirements **OPTIONAL**
 
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
+Currently requires the puppetlabs/stdlib module.
 
 ### Beginning with password_aging
 
@@ -65,15 +63,9 @@ with things. (We are working on automating this section!)
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+puppet module install stivesso-password_aging
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc **Optional**
-
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
+Any contributions to enhance the modules modules are welcome
+https://github.com/stivesso/password_aging
