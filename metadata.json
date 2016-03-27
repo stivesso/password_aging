@@ -1,0 +1,14 @@
+{
+  "name": "stivesso-password_aging",
+  "version": "0.1.0",
+  "author": "stivesso",
+  "summary": "\"Manage Password Aging parameters for both the existing and future Systems Users\"",
+  "license": "Apache-2.0",
+  "source": "https://github.com/stivesso/password_aging",
+  "project_page": "https://github.com/stivesso/password_aging",
+  "issues_url": "https://github.com/stivesso/password_aging/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
