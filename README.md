@@ -45,16 +45,25 @@ Currently requires the puppetlabs/stdlib module.
 
 ### Beginning with password_aging
 
-The very basic steps needed for a user to get the module up and running.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+See https://github.com/stivesso/password_aging
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+Simplest form:
+include password_aging
+
+With more details:
+
+# Include Password Aging
+class  { password_aging:
+   pass_max_days         => "90", 
+   pass_min_days         => "4", 
+   pass_min_len          => "8", 
+   pass_warn_age         => "7", 
+   manage_existing_user  => true,
+   users_to_manage       => ["oracle","root","user2"],
+}
+
 
 ## Reference
 
@@ -65,7 +74,7 @@ with things. (We are working on automating this section!)
 
 ## Limitations
 
-puppet module install stivesso-password_aging
+Have been tested on RHEL-Like Distribution only (RHEL,CENTOS,FEDORA,ORACLE LINUX)
 
 ## Development
 
