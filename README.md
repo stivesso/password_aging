@@ -17,10 +17,10 @@
 
 The main aim of this module is to manage Password Aging parameters for both existing and future users. The main parameters that are currently managed under this module are:
 
-#       PASS_MAX_DAYS:   Maximum number of days a password may be used (default: 99999 days)
-#       PASS_MIN_DAYS:   Minimum number of days allowed between password changes (default: 0 day)
-#       PASS_MIN_LEN:    Minimum Lenght of a password (5 days)
-#       PASS_WARN_AGE:   Password Warning Period before Expritation (7 days)
+PASS_MAX_DAYS:   Maximum number of days a password may be used (default: 99999 days)
+PASS_MIN_DAYS:   Minimum number of days allowed between password changes (default: 0 day)
+PASS_MIN_LEN:    Minimum Lenght of a password (5 days)
+PASS_WARN_AGE:   Password Warning Period before Expritation (7 days)
 
 
 ## Module Description
@@ -28,9 +28,11 @@ The main aim of this module is to manage Password Aging parameters for both exis
 The module mainly configures systems files that are used to set the needed Settings.
 It also makes use of Systems commands to affect existing Users behavior.
 
+
 ## Setup
 
-puppet module install stivesso-password_aging
+For now a simple: git clone https://github.com/stivesso/puppet-accounts.git
+Once available on Forge; puppet module install stivesso-password_aging
 
 ### What password_aging affects
 
