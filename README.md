@@ -17,10 +17,10 @@
 
 The main aim of this module is to manage Password Aging parameters for both existing and future users. The main parameters that are currently managed under this module are:
 
-#       PASS_MAX_DAYS:   Maximum number of days a password may be used.
-#       PASS_MIN_DAYS:   Minimum number of days allowed between password changes.
-#       PASS_MIN_LEN:    Minimum Lenght of a password
-#       PASS_WARN_AGE:   Password Warning Period before Expritation (in days)
+#       PASS_MAX_DAYS:   Maximum number of days a password may be used (default: 99999 days)
+#       PASS_MIN_DAYS:   Minimum number of days allowed between password changes (default: 0 day)
+#       PASS_MIN_LEN:    Minimum Lenght of a password (5 days)
+#       PASS_WARN_AGE:   Password Warning Period before Expritation (7 days)
 
 
 ## Module Description
