@@ -7,7 +7,6 @@
 3. [Setup - The basics of getting started with password_aging](#setup)
     * [What password_aging affects](#what-password_aging-affects)
     * [Setup requirements](#setup-requirements)
-    * [Beginning with password_aging](#beginning-with-password_aging)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 6. [Limitations - OS compatibility, etc.](#limitations)
@@ -19,11 +18,13 @@
 
 The main aim of this module is to manage Password Aging parameters for both existing and future users. The main parameters that are currently managed under this module are:
 
-** PASS_MAX_DAYS:   Maximum number of days a password may be used (default: 99999 days)  
-** PASS_MIN_DAYS:   Minimum number of days allowed between password changes (default: 0 day)  
-** PASS_MIN_LEN:    Minimum Lenght of a password (5 days)  
-** PASS_WARN_AGE:   Password Warning Period before Expritation (7 days)
-
+** pass_max_days         : Maximum number of days a password may be used (default: 99999 days)  
+** pass_min_days         : Minimum number of days allowed between password changes (default: 0 day)  
+** pass_min_len          : Minimum Lenght of a password (default: 5 character)  
+** pass_warn_age         : Password Warning Period before Expritation (default: 7 days)  
+** params_file           : the parameters file (default on Linux : /etc/login.defs)  
+** manage_existing_user  : Whether or not there is a list of Existing Users which needs these settings (especially max/min days)  
+** users_to_manage       : If there are some existing Users to manage, Lists those users in an array  
 
 ## Module Description
 
@@ -51,9 +52,6 @@ Currently require:
 - puppetlabs/stdlib
 - pluginsync = true (on Puppet Configuration)
 
-### Beginning with password_aging
-
-See https://github.com/stivesso/password_aging
 
 ## Usage
 

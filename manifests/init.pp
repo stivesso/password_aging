@@ -1,46 +1,42 @@
 # Class: password_aging
 # ===========================
 #
-# Full description of class password_aging here.
+# The main aim of this module is to manage Password Aging parameters for both existing and future users.
 #
 # Parameters
 # ----------
 #
 # Document parameters here.
 #
-# * `sample parameter`
-# Explanation of what this parameter affects and what it defaults to.
-# e.g. "Specify one or more upstream ntp servers as an array."
-#
-# Variables
-# ----------
-#
-# Here you should define a list of variables that this module would require.
-#
-# * `sample variable`
-#  Explanation of how this variable affects the function of this class and if
-#  it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#  External Node Classifier as a comma separated list of hostnames." (Note,
-#  global variables should be avoided in favor of class parameters as
-#  of Puppet 2.6.)
+# $pass_max_days         : Maximum number of days a password may be used (default: 99999 days)
+# $pass_min_days         : Minimum number of days allowed between password changes (default: 0 day)
+# $pass_min_len          : Minimum Lenght of a password (default: 5 chars)
+# $pass_warn_age         : Password Warning Period before Expritation (7 days)
+# $params_file           : the parameters file (default Linux : /etc/login.defs)
+# $manage_existing_user  : Whether or not there is a list of Existing Users which needs these settings (especially max/min)
+# $users_to_manage       : If there are some existing Users to manage, Lists those users in an array
 #
 # Examples
 # --------
 #
-# @example
-#    class { 'password_aging':
-#      servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#    }
+# class  { password_aging:
+#   pass_max_days         => "90", 
+#   pass_min_days         => "4", 
+#   pass_min_len          => "8", 
+#   pass_warn_age         => "7", 
+#   manage_existing_user  => true,
+#   users_to_manage       => ["oracle","root","user2"],
+#}
 #
 # Authors
 # -------
 #
-# Author Name <author@domain.com>
+# Author Name Steve ESSO<stivesso@gmail.com>
 #
 # Copyright
 # ---------
 #
-# Copyright 2016 Your name here, unless otherwise noted.
+# Copyright 2016 Steve ESSO, unless otherwise noted.
 #
 class password_aging (
   $pass_max_days         = $password_aging::params::pass_max_days, 
