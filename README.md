@@ -33,7 +33,7 @@ The module mainly configures systems files that are needed for password aging. I
 
 For now a simple,
 ```sh
-git clone https://github.com/stivesso/puppet-accounts.git
+git clone https://github.com/stivesso/password_aging
 ```
 Once available on Forge;
 ```sh
