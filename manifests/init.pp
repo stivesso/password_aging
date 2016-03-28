@@ -10,7 +10,7 @@
 #
 # $pass_max_days         : Maximum number of days a password may be used (default: 99999 days)
 # $pass_min_days         : Minimum number of days allowed between password changes (default: 0 day)
-# $pass_min_len          : Minimum Lenght of a password (5 days)
+# $pass_min_len          : Minimum Lenght of a password (default: 5 chars)
 # $pass_warn_age         : Password Warning Period before Expritation (7 days)
 # $params_file           : the parameters file (default Linux : /etc/login.defs)
 # $manage_existing_user  : Whether or not there is a list of Existing Users which needs these settings (especially max/min)
