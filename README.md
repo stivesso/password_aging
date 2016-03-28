@@ -32,19 +32,20 @@ The module mainly configures systems files that are needed for password aging. I
 
 ## Setup
 
-For now a simple,
-```sh
-git clone https://github.com/stivesso/password_aging
-```
-Once available on Forge;
+From Puppet Forge,
 ```sh
 puppet module install stivesso-password_aging
 ```
 
+From Github,
+```sh
+git clone https://github.com/stivesso/password_aging
+```
+
 ### What password_aging affects
 
- - /etc/shadow
  - /etc/login.defs
+ - /etc/shadow
 
 ### Setup Requirements
 
@@ -60,9 +61,10 @@ To accept default class parameters(default values for password aging are specifi
 include password_aging
 ```
 
-With more details:
+It is to note that PASS_MAX_DAYS, PASS_MIN_DAYS and PASS_WARN_AGE as defined above are only used at the time of account creation. Changes to these settings won't affect existing accounts. So If some Existing Accounts need to be aligned to a new defined policy, then there is a need to set manage_existing_user to true and define an array with these existing Users (as seen in the next example below) 
+
+With more details (while modifying the settings for existing oracle, root and user2):
 ```sh
-# Include Password Aging
 class  { password_aging:
    pass_max_days         => "90", 
    pass_min_days         => "4", 
@@ -102,7 +104,7 @@ I happily accept bug reports and pull requests via github,
 https://github.com/stivesso/password_aging
 
 Procedure for the Pull Request (PR):  
-- Fork password_aging
+- Fork password_aging Repository
 - Create a topic branch against the dev branch:  
 git checkout develop; git checkout -b my_branch
 - Push to your branch git push origin my_branch
