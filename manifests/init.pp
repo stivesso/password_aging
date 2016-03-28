@@ -84,7 +84,4 @@ class password_aging (
     }
   }
 
-  #notify {"User list is ${::users}": }
-  #notify {"Local User list is ${::localusers}": }
-
 }

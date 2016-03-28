@@ -2,9 +2,9 @@
 # users.rb
 #
 # This fact provides an alphabetic list of users on a Linux system host.
+# This is a modified version of that rb file to fit the need of password_aging Puppet Module
+# The original version is available at: https://github.com/kwilczynski/facter-facts/blob/master/users.rb
 #
-# The assumption is that users have UID greater than 500 and anything
-# below that is nothing of our concern ...
 #
 
 require 'puppet'
@@ -52,7 +52,7 @@ if Facter.value(:kernel) == 'Linux'
       user = line.split(':')
 
       # Add user to list only if the user is not an essential system user ...
-      users << user[0] unless user[2].to_i < 500
+      users << user[0]
     end
   else
     Puppet::Type.type('user').instances.each do |user|
@@ -60,13 +60,12 @@ if Facter.value(:kernel) == 'Linux'
       instance = user.retrieve
 
       # Add user to list only if the user is not an essential system user ...
-      users << user.name unless instance[user.property(:uid)].to_i < 500
+      users << user.name
     end
   end
 
   Facter.add('users') do
     confine :kernel => :linux
-    #setcode { users.sort.join(',') }
     setcode { users.sort }
   end
 end
