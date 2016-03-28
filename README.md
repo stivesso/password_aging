@@ -77,7 +77,17 @@ class  { password_aging:
 
 The module also supports (and encourages) configuration through hiera. Below is an example of such configuration:
 
-
+```yaml
+---
+password_aging::pass_max_days: "180"
+password_aging::pass_min_days: "28"
+password_aging::pass_min_len: "8"
+password_aging::pass_warn_age: "7"
+password_aging::manage_existing_user: true
+password_aging::users_to_manage:
+  - "oracle"
+  - "root"
+```
 
 
 ## Reference
