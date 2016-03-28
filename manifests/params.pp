@@ -13,8 +13,9 @@ class password_aging::params {
       $pass_warn_age        = "7"
       $params_file          = "/etc/login.defs"
     }
-    # if we are not on a supported os, do not do anything.
-    default: { }
+    default: { 
+      notify{"${::kernel} OS Type is not supported. Only Linux is suppported for now.":}
+    }
   }
 
 }
