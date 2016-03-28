@@ -39,9 +39,9 @@
 # Copyright 2016 Steve ESSO, unless otherwise noted.
 #
 class password_aging (
-  $pass_max_days         = $password_aging::params::pass_max_days, 
+  $pass_max_days         = $password_aging::params::pass_max_days,
   $pass_min_days         = $password_aging::params::pass_min_days,
-  $pass_min_len          = $password_aging::params::pass_min_len, 
+  $pass_min_len          = $password_aging::params::pass_min_len,
   $pass_warn_age         = $password_aging::params::pass_warn_age,
   $params_file           = $password_aging::params::params_file,
   $manage_existing_user  = $password_aging::params::manage_existing_user,
@@ -58,14 +58,14 @@ class password_aging (
 
 
   $params_mod     = [$pass_max_days,$pass_min_days,$pass_min_len,$pass_warn_age]
-  $params_pattern = ["PASS_MAX_DAYS","PASS_MIN_DAYS","PASS_MIN_LEN","PASS_WARN_AGE"]
+  $params_pattern = ['PASS_MAX_DAYS','PASS_MIN_DAYS','PASS_MIN_LEN','PASS_WARN_AGE']
 
 
   each($params_mod) | $index, $value | {
-    password_aging::linemgmt { "$params_pattern[$index]" :
+    password_aging::linemgmt { "${params_pattern}[${index}]" :
       file    => $params_file,
       line    => join([$params_pattern[$index],$params_mod[$index]], "\t"),
-      pattern => join(["^",$params_pattern[$index]], ""),
+      pattern => join(['^',$params_pattern[$index]], ''),
     }
   }
 
@@ -75,7 +75,7 @@ class password_aging (
         user { $value_user:
           password_max_age => $pass_max_days,
           password_min_age => $pass_min_days,
-        } 
+        }
       }
     }
   }
